@@ -1,4 +1,5 @@
 import { startTransition, useDeferredValue, useEffect, useMemo, useState } from "react";
+import Slider from "@mui/material/Slider";
 import stdlibDists from "@stdlib/stats/base/dists";
 import { DISTRIBUTION_GROUPS, DISTRIBUTION_ORDER, getDistributionConfig } from "../distributions";
 import {
@@ -31,11 +32,20 @@ function getMethodSignatures(methods, params) {
   if (typeof methods.pdf === "function") {
     signatures.push(`pdf(x${paramList ? `, ${paramList}` : ""})`);
   }
+  if (typeof methods.pmf === "function") {
+    signatures.push(`pmf(k${paramList ? `, ${paramList}` : ""})`);
+  }
   if (typeof methods.cdf === "function") {
     signatures.push(`cdf(x${paramList ? `, ${paramList}` : ""})`);
   }
   if (typeof methods.quantile === "function") {
     signatures.push(`quantile(p${paramList ? `, ${paramList}` : ""})`);
+  }
+  if (typeof methods.mean === "function") {
+    signatures.push(`mean(${paramList})`);
+  }
+  if (typeof methods.variance === "function") {
+    signatures.push(`variance(${paramList})`);
   }
 
   return signatures;
@@ -145,7 +155,7 @@ export default function Dashboard() {
     [],
   );
   const [selectedKey, setSelectedKey] = useState("gamma");
-  const [showScrollHint, setShowScrollHint] = useState(false);
+  const [showScrollHint, setShowScrollHint] = useState(true);
   const methods = stdlibDists[selectedKey];
   const config = getDistributionConfig(selectedKey, methods);
   const [params, setParams] = useState(() => Object.fromEntries(config.params.map((param) => [param.key, param.defaultValue])));
@@ -155,12 +165,11 @@ export default function Dashboard() {
   }, [selectedKey]);
 
   useEffect(() => {
-    setShowScrollHint(true);
     const timer = setTimeout(() => {
       setShowScrollHint(false);
     }, 3500);
     return () => clearTimeout(timer);
-  }, [selectedKey]);
+  }, []);
 
   const selectedMethods = methods ?? {};
   const normalizedParams = config.normalize ? config.normalize(params) : params;
@@ -252,18 +261,38 @@ export default function Dashboard() {
                 <code>{param.key}</code>
               </div>
               <div className="slider-wrap">
-                <input
-                  type="range"
+                <Slider
+                  value={params[param.key]}
+                  onChange={(event, newValue) =>
+                    setParams((current) => ({
+                      ...current,
+                      [param.key]: newValue,
+                    }))
+                  }
                   min={param.min}
                   max={param.max}
                   step={param.step}
-                  value={params[param.key]}
-                  onChange={(event) =>
-                    setParams((current) => ({
-                      ...current,
-                      [param.key]: Number(event.target.value),
-                    }))
-                  }
+                  sx={{
+                    color: "var(--primary-orange)",
+                    height: 6,
+                    "& .MuiSlider-thumb": {
+                      width: 22,
+                      height: 22,
+                      background: "linear-gradient(135deg, var(--primary-orange), #ff9500)",
+                      boxShadow: "0 2px 8px rgba(255, 122, 24, 0.4)",
+                      border: "3px solid white",
+                      "&:hover": {
+                        boxShadow: "0 4px 16px rgba(255, 122, 24, 0.5)",
+                      },
+                    },
+                    "& .MuiSlider-rail": {
+                      opacity: 0.3,
+                      backgroundColor: "var(--primary-orange)",
+                    },
+                    "& .MuiSlider-track": {
+                      background: "linear-gradient(90deg, rgba(255, 122, 24, 0.8), rgba(255, 122, 24, 0.6))",
+                    },
+                  }}
                 />
                 <input
                   type="number"
@@ -306,7 +335,7 @@ export default function Dashboard() {
             <h2>{config.label}</h2>
           </div>
           <p className="lede">
-            Charts are sampled directly from stdlib functions with stable point density and explicit axes. Scroll down to know more about this function.
+            Charts are sampled directly from stdlib functions with stable point density and explicit axes. Scroll down to know more about used stdlib functions.
           </p>
         </div>
 
