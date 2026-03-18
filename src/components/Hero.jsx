@@ -8,7 +8,7 @@ export default function Hero() {
       <section className="hero-banner-fullpage">
         <div className="hero-container-fullpage">
           <div className="hero-content-fullpage">
-            <p className="hero-eyebrow">Discover Statistical Distributions</p>
+            <p className="hero-eyebrow">Discover Probability Distributions</p>
             <h1 className="hero-title-fullpage">Probability Distribution Visualization</h1>
             <div className="hero-subtitle">
               <p>Powered by</p>
@@ -17,8 +17,8 @@ export default function Hero() {
               </a>
             </div>
             <p className="hero-description-fullpage">
-              Explore the documented @stdlib/stats/base/dists namespace with parameter-accurate plots, summary statistics, and method signatures. Interactive visualizations, real-time parameter updates, and detailed distribution information.
-            </p>
+                Understand Distributions, Not Just Formulas.<br/>
+                Plot, compare, and experiment with probability distributions like Beta, Gaussian, Poisson, and more.            </p>
             <button 
               className="hero-button"
               onClick={() => navigate("/dashboard")}

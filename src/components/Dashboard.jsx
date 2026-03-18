@@ -31,9 +31,6 @@ function getMethodSignatures(methods, params) {
   if (typeof methods.pdf === "function") {
     signatures.push(`pdf(x${paramList ? `, ${paramList}` : ""})`);
   }
-  if (typeof methods.pmf === "function") {
-    signatures.push(`pmf(x${paramList ? `, ${paramList}` : ""})`);
-  }
   if (typeof methods.cdf === "function") {
     signatures.push(`cdf(x${paramList ? `, ${paramList}` : ""})`);
   }
@@ -147,13 +144,22 @@ export default function Dashboard() {
       }),
     [],
   );
-  const [selectedKey, setSelectedKey] = useState(availableKeys[0] ?? "normal");
+  const [selectedKey, setSelectedKey] = useState("gamma");
+  const [showScrollHint, setShowScrollHint] = useState(false);
   const methods = stdlibDists[selectedKey];
   const config = getDistributionConfig(selectedKey, methods);
   const [params, setParams] = useState(() => Object.fromEntries(config.params.map((param) => [param.key, param.defaultValue])));
 
   useEffect(() => {
     setParams(Object.fromEntries(config.params.map((param) => [param.key, param.defaultValue])));
+  }, [selectedKey]);
+
+  useEffect(() => {
+    setShowScrollHint(true);
+    const timer = setTimeout(() => {
+      setShowScrollHint(false);
+    }, 3500);
+    return () => clearTimeout(timer);
   }, [selectedKey]);
 
   const selectedMethods = methods ?? {};
@@ -186,6 +192,15 @@ export default function Dashboard() {
           <path d="M15 10H5M5 10L10 15M5 10L10 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </button>
+
+      {showScrollHint && (
+        <div className="scroll-hint" onClick={() => setShowScrollHint(false)}>
+          <div className="scroll-hint-content">
+            <p>Scroll down to see documentation</p>
+            <div className="scroll-arrow">↓</div>
+          </div>
+        </div>
+      )}
 
       <aside className="sidebar panel">
         <div>

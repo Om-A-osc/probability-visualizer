@@ -631,7 +631,8 @@ output {
   border-radius: 999px;
   background: rgba(16, 32, 58, 0.07);
   color: #10203a;
-  font-size: 0.82rem;
+  font-size: 0.7rem;
+  font-weight: 500;
 }
 
 .empty-state {
@@ -695,10 +696,7 @@ output {
   font-size: clamp(3rem, 6vw, 5rem);
   line-height: 1.15;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary-blue) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--primary-orange);
   margin-bottom: 24px;
 }
 
@@ -745,7 +743,7 @@ output {
   align-items: center;
   gap: 12px;
   padding: 16px 36px;
-  background: var(--gradient-cool);
+  background: linear-gradient(135deg, var(--primary-orange), #ff9500);
   color: white;
   border: none;
   border-radius: 50px;
@@ -753,19 +751,19 @@ output {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 12px 32px rgba(31, 142, 241, 0.3);
+  box-shadow: 0 12px 32px rgba(255, 122, 24, 0.3);
   animation: fadeInDown 0.8s ease-out 0.4s both;
 }
 
 .hero-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 20px 48px rgba(31, 142, 241, 0.4);
-  background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+  box-shadow: 0 20px 48px rgba(255, 122, 24, 0.4);
+  background: linear-gradient(135deg, #ff9500 0%, #ff7a18 100%);
 }
 
 .hero-button:active {
   transform: translateY(0);
-  box-shadow: 0 8px 20px rgba(31, 142, 241, 0.3);
+  box-shadow: 0 8px 20px rgba(255, 122, 24, 0.3);
 }
 
 .hero-button svg {
@@ -827,7 +825,7 @@ output {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #ff7a18 0%, #1f8ef1 100%);
+  background: linear-gradient(90deg, #ff7a18 0%, #ff9500 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -844,7 +842,7 @@ output {
 .feature-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 24px 60px rgba(16, 32, 58, 0.15);
-  border-color: var(--primary-blue);
+  border-color: var(--primary-orange);
 }
 
 .feature-card h3 {
@@ -867,6 +865,7 @@ output {
   min-height: 100vh;
   padding: 24px;
   position: relative;
+  margin-top: 80px;
 }
 
 .back-to-home {
@@ -929,6 +928,7 @@ output {
   padding: 60px 24px;
   background: linear-gradient(135deg, rgba(255, 122, 24, 0.05) 0%, rgba(31, 142, 241, 0.05) 100%);
   margin: 0;
+  margin-top: 60px;
 }
 
 .readme-header {
@@ -1122,12 +1122,12 @@ output {
 }
 
 .installation-code-block {
-  background: var(--text-dark);
+  background: rgba(255, 255, 255, 0.92);
   border-radius: 16px;
-  border: 2px solid var(--primary-blue);
+  border: 2px solid var(--primary-orange);
   overflow: hidden;
   margin-bottom: 40px;
-  box-shadow: 0 8px 32px rgba(31, 142, 241, 0.2);
+  box-shadow: 0 8px 32px rgba(255, 122, 24, 0.2);
   animation: fadeInDown 0.8s ease-out;
 }
 
@@ -1137,7 +1137,7 @@ output {
   justify-content: space-between;
   padding: 12px 20px;
   border-bottom: 1px solid rgba(255, 122, 24, 0.3);
-  background: linear-gradient(90deg, rgba(255, 122, 24, 0.05) 0%, rgba(31, 142, 241, 0.05) 100%);
+  background: linear-gradient(90deg, rgba(255, 122, 24, 0.05) 0%, rgba(255, 122, 24, 0.03) 100%);
 }
 
 .code-label {
@@ -1149,9 +1149,9 @@ output {
 }
 
 .copy-button {
-  background: linear-gradient(135deg, rgba(31, 142, 241, 0.2) 0%, rgba(255, 122, 24, 0.1) 100%);
-  border: 1px solid rgba(31, 142, 241, 0.4);
-  color: var(--primary-blue);
+  background: linear-gradient(135deg, rgba(255, 122, 24, 0.2) 0%, rgba(255, 122, 24, 0.1) 100%);
+  border: 1px solid rgba(255, 122, 24, 0.4);
+  color: var(--primary-orange);
   width: 32px;
   height: 32px;
   border-radius: 6px;
@@ -1163,10 +1163,10 @@ output {
 }
 
 .copy-button:hover {
-  background: linear-gradient(135deg, rgba(31, 142, 241, 0.3) 0%, rgba(255, 122, 24, 0.2) 100%);
-  border-color: var(--primary-blue);
+  background: linear-gradient(135deg, rgba(255, 122, 24, 0.3) 0%, rgba(255, 122, 24, 0.2) 100%);
+  border-color: var(--primary-orange);
   transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(31, 142, 241, 0.2);
+  box-shadow: 0 4px 12px rgba(255, 122, 24, 0.2);
 }
 
 .installation-code-block pre {
@@ -1185,7 +1185,7 @@ output {
 
 .usage-example {
   text-align: left;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(31, 142, 241, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 122, 24, 0.05) 100%);
   border-radius: 16px;
   padding: 30px;
   border: 2px solid var(--primary-orange);
@@ -1214,10 +1214,10 @@ output {
 }
 
 .code-example {
-  background: var(--text-dark);
+  background: rgba(255, 255, 255, 0.92);
   border-radius: 12px;
   overflow-x: auto;
-  border: 1px solid rgba(31, 142, 241, 0.2);
+  border: 1px solid rgba(255, 122, 24, 0.2);
   position: relative;
   z-index: 1;
 }
@@ -1225,20 +1225,20 @@ output {
 .code-example pre {
   margin: 0;
   padding: 16px;
-  color: #58b6e8;
+  color: var(--primary-orange);
   font-family: "Fira Code", "Monaco", "Courier New", monospace;
   font-size: 0.9rem;
   line-height: 1.5;
 }
 
 .code-example code {
-  color: #58b6e8;
+  color: var(--primary-orange);
 }
 
 /* Footer Section */
 .footer-section {
-  background: linear-gradient(180deg, rgba(16, 32, 58, 0.98) 0%, rgba(10, 20, 40, 0.99) 100%);
-  color: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 245, 245, 0.98) 100%);
+  color: #10203a;
   padding: 60px 24px 40px;
   border-top: 2px solid var(--primary-orange);
   position: relative;
@@ -1253,7 +1253,7 @@ output {
   height: 100%;
   background: 
     radial-gradient(circle at 0% 50%, rgba(255, 122, 24, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 100% 50%, rgba(31, 142, 241, 0.05) 0%, transparent 50%);
+    radial-gradient(circle at 100% 50%, rgba(255, 122, 24, 0.03) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -1283,15 +1283,11 @@ output {
 .footer-column h4 {
   font-size: 1rem;
   margin: 0 0 16px 0;
-  color: white;
+  color: var(--primary-orange);
   font-weight: 700;
   display: flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(90deg, var(--primary-orange) 0%, var(--primary-blue) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .footer-nav {
@@ -1307,7 +1303,7 @@ output {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: rgba(255, 255, 255, 0.7);
+  color: #10203a;
   text-decoration: none;
   font-size: 0.95rem;
   transition: all 0.3s ease;
@@ -1315,7 +1311,7 @@ output {
 }
 
 .footer-link:hover {
-  color: var(--primary-blue);
+  color: var(--primary-orange);
   transform: translateX(4px);
 }
 
@@ -1325,7 +1321,7 @@ output {
 
 .footer-divider {
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--primary-orange) 20%, var(--primary-blue) 50%, var(--primary-orange) 80%, transparent);
+  background: linear-gradient(90deg, transparent, var(--primary-orange) 20%, var(--primary-orange) 50%, var(--primary-orange) 80%, transparent);
   margin-bottom: 24px;
 }
 
@@ -1336,7 +1332,7 @@ output {
 }
 
 .footer-credits {
-  color: rgba(255, 255, 255, 0.6);
+  color: #10203a;
   font-size: 0.9rem;
   line-height: 1.6;
 }
@@ -1346,7 +1342,7 @@ output {
 }
 
 .footer-credits a {
-  color: var(--primary-blue);
+  color: var(--primary-orange);
   text-decoration: none;
   transition: all 0.3s ease;
   font-weight: 600;
@@ -1364,7 +1360,7 @@ output {
 
 .footer-year {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: #10203a;
 }
 
 @keyframes heartbeat {
@@ -1755,5 +1751,100 @@ output {
 
   .readme-panel {
     width: 100%;
+  }
+}
+/* Scroll Hint Animation */
+.scroll-hint {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  z-index: 100;
+  animation: scrollHintFadeIn 0.4s ease-out;
+  cursor: pointer;
+}
+
+.scroll-hint-content {
+  text-align: center;
+  background: linear-gradient(135deg, rgba(255, 122, 24, 0.95) 0%, rgba(255, 150, 70, 0.95) 100%);
+  color: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(255, 122, 24, 0.3);
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease;
+}
+
+.scroll-hint:hover .scroll-hint-content {
+  transform: scale(1.05);
+}
+
+.scroll-hint-content p {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.scroll-arrow {
+  font-size: 24px;
+  animation: scrollArrowBounce 1.2s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes scrollHintFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scrollArrowBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@media (max-width: 768px) {
+  .scroll-hint {
+    top: 80px;
+    right: 12px;
+  }
+
+  .scroll-hint-content {
+    padding: 16px 20px;
+  }
+
+  .scroll-hint-content p {
+    font-size: 14px;
+  }
+
+  .scroll-arrow {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-hint {
+    top: 70px;
+    right: 10px;
+  }
+
+  .scroll-hint-content {
+    padding: 12px 16px;
+  }
+
+  .scroll-hint-content p {
+    font-size: 12px;
+  }
+
+  .scroll-arrow {
+    font-size: 18px;
   }
 }
