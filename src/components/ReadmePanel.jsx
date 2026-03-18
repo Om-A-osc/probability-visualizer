@@ -4,7 +4,7 @@ import rehypeRaw from "rehype-raw";
 
 const readmeModules = import.meta.glob(
   "../../node_modules/@stdlib/stats/base/dists/**/README.md",
-  { as: "raw" }
+  { query: "?raw", import: "default" }
 );
 
 const readmeMap = {};
